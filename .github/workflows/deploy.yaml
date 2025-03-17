@@ -1,0 +1,32 @@
+name: deploy
+
+
+on:
+
+  push:
+    branches: main
+
+  workflow_dispatch:
+
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Install uv with cache enabled
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-cache: true
+
+    - name: Deploy
+      run: uvx --with mkdocs-material mkdocs gh-deploy --force
