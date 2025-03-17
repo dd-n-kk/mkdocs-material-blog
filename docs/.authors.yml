@@ -3,4 +3,4 @@ authors:
     name: MY_NAME
     description: About me
     avatar: assets/favicon.png
-    url: https://github.com/MY_NAME
+    url: ./about/
